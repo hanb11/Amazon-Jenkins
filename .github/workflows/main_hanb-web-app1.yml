@@ -29,6 +29,9 @@ jobs:
         with:
           name: java-app
           path: target/*.jar   # JAR will be stored as artifact
+      - name: Verify JAR exists
+        run: ls -lh ./java-app
+
 
   deploy:
     runs-on: ubuntu-latest
@@ -57,3 +60,4 @@ jobs:
           app-name: 'hanb-web-app1'
           slot-name: 'Production'
           package: ./java-app/*.jar   # 👈 Correct path
+
